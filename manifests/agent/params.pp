@@ -4,6 +4,7 @@
 # It sets variables according to platform.
 #
 class vault::agent::params {
+  $vault_addr         = undef
   $user               = $::vault::user
   $manage_user        = $::vault::manage_user
   $group              = $::vault::group
