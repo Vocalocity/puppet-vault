@@ -41,7 +41,7 @@ class vault::agent::config {
           mode    => '0444',
           owner   => 'root',
           group   => 'root',
-          content => template('vault/vault-agent.upstart.erb'),
+          content => template('vault/agent/vault-agent.upstart.erb'),
         }
         file { '/etc/init.d/vault-agent':
           ensure => link,
@@ -53,7 +53,7 @@ class vault::agent::config {
       }
       'systemd': {
         ::systemd::unit_file{'vault-agent.service':
-          content => template('vault/vault-agent.systemd.erb'),
+          content => template('vault/agent/vault-agent.systemd.erb'),
         }
       }
       /(redhat|sysv|init)/: {
@@ -62,7 +62,7 @@ class vault::agent::config {
           owner   => 'root',
           group   => 'root',
           mode    => '0755',
-          content => template('vault/vault-agent.initd.erb'),
+          content => template('vault/agent/vault-agent.initd.erb'),
         }
       }
       default: {
