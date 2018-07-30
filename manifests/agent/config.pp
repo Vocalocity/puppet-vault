@@ -12,7 +12,7 @@ class vault::agent::config {
     }
   })
 
-  file { "${::vault::config_dir}/agent_config.json":
+  file { "${::vault::config_dir}/agent-config.json":
     content => to_json_pretty($agent_config_hash),
     owner   => $::vault::agent::user,
     group   => $::vault::agent::group,

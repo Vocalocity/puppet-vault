@@ -16,7 +16,7 @@ Group=<%= scope['vault::agent::group'] %>
 PrivateDevices=yes
 PrivateTmp=yes
 ProtectSystem=full
-ExecStart=<%= scope['vault::bin_dir'] %>/vault agent -config=<%= scope['vault::config_dir'] %>/agent_config.json <%= scope['vault::agent::service_options'] %>
+ExecStart=<%= scope['vault::bin_dir'] %>/vault agent -config=<%= scope['vault::config_dir'] %>/agent-config.json <%= scope['vault::agent::service_options'] %>
 KillSignal=SIGINT
 TimeoutStopSec=30s
 Restart=on-failure
