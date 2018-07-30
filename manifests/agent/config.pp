@@ -21,6 +21,7 @@ class vault::agent::config {
   # If nothing is specified for manage_service_file, defaults will be used
   # depending on the install_method.
   # If a value is passed, it will be interpretted as a boolean.
+  fail($::vault::agent::manage_service_file)
   if $::vault::agent::manage_service_file == undef {
     case $::vault::install_method {
       'archive': { $real_manage_service_file = true  }
@@ -32,7 +33,6 @@ class vault::agent::config {
     $real_manage_service_file = $::vault::manage_service_file
   }
 
-  fail($real_manage_service_file)
 
   if $real_manage_service_file {
     case $::vault::service_provider {
