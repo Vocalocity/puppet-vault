@@ -7,8 +7,8 @@ class vault::agent::config {
   $agent_config_hash = delete_undef_values({
     'pid_file'  => $::vault::agent::pid_file,
     'auto_auth' => {
-      'method'    => $::vault::agent::method,
-      'sinks'     => $::vault::agent::sinks,
+      'method' => $::vault::agent::method,
+      'sink'   => $::vault::agent::sinks,
     }
   })
 
