@@ -33,8 +33,8 @@
 #   Instruct puppet to manage service or not
 #
 class vault::agent (
-  $vault_addr          = $::vault::agent::params::vault_addr,
-  $pid_file            = $::vault::agent::params::pid_file,
+  String $vault_addr   = $::vault::agent::params::vault_addr,
+  String $pid_file     = $::vault::agent::params::pid_file,
   $user                = $::vault::agent::params::user,
   $manage_user         = $::vault::agent::params::manage_user,
   $group               = $::vault::agent::params::group,
