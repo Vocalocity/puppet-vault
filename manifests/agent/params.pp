@@ -9,6 +9,7 @@ class vault::agent::params {
   $group              = $::vault::group
   $manage_group       = $::vault::manage_group
   $service_name       = 'vault-agent'
+  $pid_file           = ''
 
   # These should always be undef as they are optional settings that
   # should not be configured unless explicitly declared.

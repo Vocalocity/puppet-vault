@@ -5,14 +5,17 @@
 class vault::agent::config {
 
   $agent_config_hash = delete_undef_values({
-    'method' => $::vault::agent::method,
-    'sinks'  => $::vault::agent::sinks,
+    'pid_file'  => $::vault::agent::pid_file,
+    'auto_auth' => {
+      'method'    => $::vault::agent::method,
+      'sinks'     => $::vault::agent::sinks,
+    }
   })
 
   file { "${::vault::config_dir}/agent_config.json":
     content => to_json_pretty($agent_config_hash),
-    owner   => $::vault::user,
-    group   => $::vault::group,
+    owner   => $::vault::agent::user,
+    group   => $::vault::agent::group,
   }
 
   # If nothing is specified for manage_service_file, defaults will be used
@@ -28,6 +31,8 @@ class vault::agent::config {
     validate_bool($::vault::manage_service_file)
     $real_manage_service_file = $::vault::manage_service_file
   }
+
+  fail($real_manage_service_file)
 
   if $real_manage_service_file {
     case $::vault::service_provider {
