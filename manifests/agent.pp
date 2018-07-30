@@ -44,7 +44,7 @@ class vault::agent (
   $manage_service                      = $::vault::agent::params::manage_service,
   $manage_service_file                 = $::vault::agent::params::manage_service_file,
   Hash $method                         = $::vault::agent::params::method,
-  [Hash] $sinks                        = $::vault::agent::params::sinks,
+  Array[Hash] $sinks                        = $::vault::agent::params::sinks,
   $service_options                     = '',
 ) inherits ::vault::agent::params {
 
