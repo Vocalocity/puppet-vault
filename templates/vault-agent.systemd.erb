@@ -23,7 +23,7 @@ TimeoutStopSec=30s
 Restart=on-failure
 StartLimitInterval=60s
 StartLimitBurst=3
-Envionrment=VAULT_ADDR=<%= scope['vault::agent::vault_addr']
+Envionrment=VAULT_ADDR=<%= scope['vault::agent::vault_addr'] %>
 
 [Install]
 WantedBy=multi-user.target
